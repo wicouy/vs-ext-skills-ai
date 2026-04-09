@@ -1,0 +1,25 @@
+# Ignore source and dev files — keep built output in /dist
+src/**
+test/**
+tests/**
+**/*.ts
+**/*.map
+
+# Keep extension icon
+!src/media/icon.ico
+
+# Tooling and config
+.vscode/**
+.github/**
+.eslintrc*
+.prettierrc*
+tsconfig.json
+package-lock.json
+npm-debug.log
+.vscodeignore
+
+# Node modules (do not bundle)
+node_modules/**
+
+# Git
+.git/**

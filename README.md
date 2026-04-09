@@ -1,53 +1,98 @@
-# 🧩 AI Skill Library for VS Code
+# AI Skill Library para Visual Studio Code
 
-AI Skill Library es una extensión de Visual Studio Code diseñada para gestionar, organizar y aplicar "habilidades" (instrucciones de contexto avanzadas) a tus modelos de IA favoritos (Claude, GPT, Copilot) de la misma forma en que adjuntas archivos a un chat.
+Una extensión para gestionar y usar "skills" (instrucciones predefinidas) con modelos de IA desde VS Code.
 
-## 🚀 La Idea
+**Objetivo:** mantener la documentación mínima y automatizable para evitar actualizaciones manuales frecuentes. Usa el `package.json` y los `releases` como fuente de la verdad para versiones y notas de publicación.
 
-En lugar de escribir prompts repetitivos, la extensión permite inyectar Skills predefinidas o personalizadas como "chips" de contexto. Esto mantiene tu flujo de trabajo limpio y tus interacciones con la IA especializadas según la tarea.
+## Quick Start
 
-## 🛠️ Características Principales
+- **Requisitos:** Node.js (>=18), npm, Visual Studio Code (>=1.90).
+- **Instalar dependencias:**
 
-*   **Biblioteca de Skills:** Un panel lateral para organizar tus instrucciones por Categorías (Frontend, Backend, DevOps) y Especialidades (React, Rust, SQL Optimization).
-*   **Inyección Tipo "File-Add":** Interfaz integrada en el chat para añadir habilidades como si fueran archivos adjuntos (README.md, main.ts, etc.).
-*   **Variables Dinámicas:** Skills que se adaptan automáticamente al lenguaje del archivo que tienes abierto.
-*   **Import/Export:** Comparte tus "Skill Packs" con tu equipo mediante archivos JSON/YAML.
-
-## 🏗️ Arquitectura del Proyecto
-
-La extensión sigue la estructura estándar de VS Code usando TypeScript:
-
-```text
-ai-skill-library/
-├── .vscode/               # Configuración de depuración
-├── src/
-│   ├── extension.ts       # Punto de entrada (activación de la extensión)
-│   ├── skills/            # Lógica de gestión de la biblioteca
-│   │   ├── provider.ts    # Proveedor del TreeView (Panel Lateral)
-│   │   └── manager.ts     # CRUD de las habilidades (crear, editar, borrar)
-│   ├── ui/                # Componentes de la interfaz
-│   │   └── chatBridge.ts  # Integración con la API de Chat de VS Code
-│   └── models/            # Definición de interfaces (Skill, Category)
-├── assets/                # Iconos (⚡, 🧩)
-├── package.json           # Manifiesto y comandos de la extensión
-└── tsconfig.json          # Configuración de TypeScript
+```bash
+npm install
 ```
 
-## 📋 Anatomía de una "Skill"
+- **Construir (producción):**
 
-Cada skill se almacena internamente con la siguiente estructura:
+```bash
+npm run compile
+```
 
-*   **ID:** Identificador único.
-*   **Label:** Nombre visible (ej: ⚡ Unit Test Expert).
-*   **Category:** Agrupación lógica (ej: Testing).
-*   **Prompt:** El cuerpo de la instrucción que se enviará al modelo.
-*   **Context:** Metadatos para saber cuándo sugerir esta skill.
+- **Empaquetar (.vsix):**
 
-## 🛠️ Roadmap de Desarrollo
+```bash
+npm run vsce:package
+# o alternativamente
+npx @vscode/vsce package --allow-missing-repository
+```
 
-*   [ ] **Fase 1:** Crear el Panel Lateral (TreeView) para visualizar categorías y skills.
-*   [ ] **Fase 2:** Implementar el motor de almacenamiento local para las skills del usuario.
-*   [ ] **Fase 3:** Integración con la `vscode.ChatParticipant` API para permitir el "adjuntado" visual en el chat.
-*   [ ] **Fase 4:** Sistema de plantillas para variables dinámicas (ej: `{{language}}`, `{{selection}}`).
+- **Instalar localmente:**
 
-> **Nota:** Esta extensión busca ser agnóstica al modelo, permitiendo que tus "Skills" te acompañen sin importar si usas Claude, GPT-4 o modelos locales.
+```bash
+code --install-extension ai-skill-library-<version>.vsix
+```
+
+Si el comando `code` no está disponible, abre VS Code y usa "Install from VSIX..." desde el menú de extensiones o copia manualmente la carpeta descomprimida a tu directorio de extensiones (`%USERPROFILE%\.vscode\extensions` en Windows).
+
+## Desarrollo
+
+- Ejecuta en modo watch durante el desarrollo:
+
+```bash
+npm run watch
+```
+
+- Para verificar tipos y lint antes de publicar:
+
+```bash
+npm run check-types
+npm run lint
+```
+
+## Empaquetado y Publicación
+
+- Asegúrate de que `package.json` contiene `publisher` y metadatos correctos.
+- Publicar con `vsce` (requiere PAT para el Marketplace):
+
+```bash
+npm install -g @vscode/vsce
+vsce package
+vsce publish
+```
+
+- Recomendación: usa GitHub Actions para automatizar el build y la publicación al crear un release — así no tendrás que editar el README en cada versión.
+
+## Buenas prácticas para evitar actualizaciones constantes
+
+- Mantén la información variable (versiones, notas de cambio) en `package.json` y en los releases de GitHub.
+- Publica notas de cambio en GitHub Releases en lugar de editar el README.
+- Automatiza el empaquetado y publicación con una acción CI que corra `npm run vsce:package` y suba el artefacto o publique el paquete.
+
+## Troubleshooting rápido
+
+- Error de TypeScript sobre `baseUrl` o `ignoreDeprecations`: evita usar `baseUrl` si no es necesario; para proyectos con bundlers considera:
+
+```json
+{
+	"compilerOptions": {
+		"module": "esnext",
+		"moduleResolution": "bundler",
+		"target": "es2022"
+	}
+}
+```
+
+- Si `vsce package` falla por el icono, verifica que la ruta en `package.json` exista y que `.vscodeignore` incluya una excepción para el icono.
+
+## Contribuir
+
+- Abrir issues o PRs.
+- Mantén los tests (si existen) y el lint limpios.
+
+## Licencia
+
+Consulta el archivo `LICENSE` del proyecto.
+
+---
+

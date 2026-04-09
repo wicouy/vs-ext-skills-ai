@@ -1,0 +1,9 @@
+{
+    "extension.description": "Manage and apply advanced context instructions to your AI models.",
+    "viewsContainers.title": "AI Skills",
+    "views.explorer.name": "Skill Library",
+    "command.refresh": "Refresh Skills",
+    "command.addSkill": "Add Skill",
+    "command.editSkill": "Edit Skill",
+    "command.deleteSkill": "Delete Skill"
+}
