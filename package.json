@@ -3,15 +3,13 @@
   "displayName": "AI Skill Library",
   "description": "Gestiona y aplica instrucciones de contexto avanzadas a tus modelos de IA.",
   "version": "0.1.0",
+  "icon": "src/media/icon.ico",
   "engines": {
     "vscode": "^1.90.0"
   },
   "categories": [
     "Machine Learning",
     "Other"
-  ],
-  "activationEvents": [
-    "onView:aiSkillLibraryView"
   ],
   "main": "./dist/extension.js",
   "contributes": {
