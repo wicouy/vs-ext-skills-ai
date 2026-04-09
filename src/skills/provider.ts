@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
-import { SkillManager } from './manager';
+import { SkillManager } from '@/skills/manager';
+import { t } from '@/i18n';
 
 export class SkillTreeProvider implements vscode.TreeDataProvider<SkillTreeItem> {
     private _onDidChangeTreeData: vscode.EventEmitter<SkillTreeItem | undefined | void> = new vscode.EventEmitter<SkillTreeItem | undefined | void>();
@@ -20,7 +21,7 @@ export class SkillTreeProvider implements vscode.TreeDataProvider<SkillTreeItem>
             // Root elements (Categories)
             const categories = this.skillManager.getCategories();
             if (categories.length === 0) {
-                return Promise.resolve([new SkillTreeItem('No categories found', vscode.TreeItemCollapsibleState.None)]);
+                return Promise.resolve([new SkillTreeItem(t('common.noCategories'), vscode.TreeItemCollapsibleState.None)]);
             }
             return Promise.resolve(
                 categories.map(cat => new SkillTreeItem(cat.label, vscode.TreeItemCollapsibleState.Collapsed, cat.id, 'category'))
@@ -48,8 +49,10 @@ export class SkillTreeItem extends vscode.TreeItem {
         this.tooltip = this.label;
         if (this.type === 'category') {
             this.iconPath = new vscode.ThemeIcon('folder');
+            this.contextValue = 'category';
         } else if (this.type === 'skill') {
             this.iconPath = new vscode.ThemeIcon('zap');
+            this.contextValue = 'skill';
         }
     }
 }

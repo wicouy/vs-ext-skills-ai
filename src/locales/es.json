@@ -1,0 +1,20 @@
+{
+    "common": {
+        "comingSoon": "{{action}}: Próximamente...",
+        "noCategories": "No se encontraron categorías",
+        "addSkill": "Añadir Habilidad",
+        "editSkill": "Editar Habilidad",
+        "deleteSkill": "Borrar Habilidad",
+        "refresh": "Refrescar"
+    },
+    "mock": {
+        "refactoring": "Refactorización",
+        "testing": "Pruebas",
+        "refactoringDesc": "Habilidades para mejorar código existente",
+        "testingDesc": "Habilidades para crear pruebas y aserciones",
+        "cleanCode": "Experto en Clean Code",
+        "jestTests": "Tests Unitarios con Jest",
+        "cleanCodePrompt": "Refactoriza este código aplicando principios SOLID...",
+        "jestTestsPrompt": "Crea pruebas unitarias en Jest considerando casos borde..."
+    }
+}

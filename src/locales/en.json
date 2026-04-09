@@ -1,0 +1,20 @@
+{
+    "common": {
+        "comingSoon": "{{action}}: Coming soon...",
+        "noCategories": "No categories found",
+        "addSkill": "Add Skill",
+        "editSkill": "Edit Skill",
+        "deleteSkill": "Delete Skill",
+        "refresh": "Refresh"
+    },
+    "mock": {
+        "refactoring": "Refactoring",
+        "testing": "Testing",
+        "refactoringDesc": "Skills for improving existing code",
+        "testingDesc": "Skills for creating tests and assertions",
+        "cleanCode": "Clean Code Expert",
+        "jestTests": "Jest Unit Tests",
+        "cleanCodePrompt": "Refactor this code applying SOLID principles...",
+        "jestTestsPrompt": "Create Jest unit tests considering edge cases..."
+    }
+}

@@ -1,7 +1,7 @@
 {
   "name": "ai-skill-library",
   "displayName": "AI Skill Library",
-  "description": "Gestiona y aplica instrucciones de contexto avanzadas a tus modelos de IA.",
+  "description": "%extension.description%",
   "version": "0.1.0",
   "icon": "src/media/icon.ico",
   "engines": {
@@ -17,7 +17,7 @@
       "activitybar": [
         {
           "id": "ai-skills-explorer",
-          "title": "AI Skills",
+          "title": "%viewsContainers.title%",
           "icon": "$(zap)"
         }
       ]
@@ -26,22 +26,58 @@
       "ai-skills-explorer": [
         {
           "id": "aiSkillLibraryView",
-          "name": "Skill Library"
+          "name": "%views.explorer.name%"
         }
       ]
     },
     "commands": [
       {
         "command": "aiSkillLibrary.refresh",
-        "title": "Refresh Skills",
+        "title": "%command.refresh%",
         "icon": "$(refresh)"
       },
       {
         "command": "aiSkillLibrary.addSkill",
-        "title": "Add Skill",
+        "title": "%command.addSkill%",
         "icon": "$(add)"
+      },
+      {
+        "command": "aiSkillLibrary.editSkill",
+        "title": "%command.editSkill%",
+        "icon": "$(pencil)"
+      },
+      {
+        "command": "aiSkillLibrary.deleteSkill",
+        "title": "%command.deleteSkill%",
+        "icon": "$(trash)"
       }
-    ]
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "aiSkillLibrary.addSkill",
+          "when": "view == aiSkillLibraryView",
+          "group": "navigation"
+        },
+        {
+          "command": "aiSkillLibrary.refresh",
+          "when": "view == aiSkillLibraryView",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "aiSkillLibrary.editSkill",
+          "when": "view == aiSkillLibraryView && viewItem == skill",
+          "group": "inline"
+        },
+        {
+          "command": "aiSkillLibrary.deleteSkill",
+          "when": "view == aiSkillLibraryView && viewItem == skill",
+          "group": "inline"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
@@ -58,15 +94,23 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.90.0",
+    "@types/mocha": "^10.0.10",
     "@types/node": "20.x",
+    "@types/vscode": "^1.90.0",
     "@typescript-eslint/eslint-plugin": "^7.14.1",
     "@typescript-eslint/parser": "^7.14.1",
-    "eslint": "^8.57.0",
-    "esbuild": "^0.21.5",
-    "npm-run-all": "^4.1.5",
-    "typescript": "^5.4.5",
     "@vscode/test-cli": "^0.0.9",
-    "@vscode/test-electron": "^2.4.0"
+    "@vscode/test-electron": "^2.4.0",
+    "esbuild": "^0.21.5",
+    "eslint": "^8.57.0",
+    "module-alias": "^2.3.4",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "i18next": "^26.0.4"
+  },
+  "_moduleAliases": {
+    "@": "out"
   }
 }

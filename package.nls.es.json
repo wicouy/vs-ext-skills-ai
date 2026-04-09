@@ -1,0 +1,9 @@
+{
+    "extension.description": "Gestiona y aplica instrucciones de contexto avanzadas a tus modelos de IA.",
+    "viewsContainers.title": "Habilidades de IA",
+    "views.explorer.name": "Biblioteca de Habilidades",
+    "command.refresh": "Refrescar Habilidades",
+    "command.addSkill": "Añadir Habilidad",
+    "command.editSkill": "Editar Habilidad",
+    "command.deleteSkill": "Borrar Habilidad"
+}

@@ -10,7 +10,12 @@
     "rootDir": "src",
     "strict": true,
     "moduleResolution": "Node16",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "exclude": [
     "node_modules",

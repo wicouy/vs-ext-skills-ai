@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { SkillManager } from '../skills/manager';
+import { SkillManager } from '@/skills/manager';
 
 export class ChatBridge {
     constructor(private skillManager: SkillManager) {}
