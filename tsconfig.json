@@ -3,19 +3,17 @@
     "module": "Node16",
     "target": "ES2022",
     "outDir": "out",
-    "lib": [
-      "ES2022"
-    ],
+    "lib": ["ES2022"],
     "sourceMap": true,
     "rootDir": "src",
     "strict": true,
+    "skipLibCheck": true,
     "moduleResolution": "Node16",
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "ignoreDeprecations": "6.0",
-    "baseUrl": ".",
+    "types": ["node", "mocha"],
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     }
   },
   "exclude": [

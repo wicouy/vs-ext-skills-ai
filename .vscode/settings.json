@@ -1,0 +1,13 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "code": true,
+        "/^powershell -Command \"Remove-Item -Recurse -Force -ErrorAction SilentlyContinue \\.\\\\tmp-vsix; Expand-Archive -LiteralPath \\.\\\\ai-skill-library-0\\.1\\.0\\.vsix -DestinationPath \\.\\\\tmp-vsix -Force; Remove-Item -Recurse -Force -ErrorAction SilentlyContinue 'C:\\\\Users\\\\wico\\\\\\.vscode\\\\extensions\\\\ai-skill-library-0\\.1\\.0'; Copy-Item -Path \\.\\\\tmp-vsix\\\\extension -Destination 'C:\\\\Users\\\\wico\\\\\\.vscode\\\\extensions\\\\ai-skill-library-0\\.1\\.0' -Recurse;\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^powershell -Command \"Remove-Item -Recurse -Force -ErrorAction SilentlyContinue \\.\\\\tmp-vsix; Remove-Item -Force -ErrorAction SilentlyContinue \\.\\\\ai-skill-library-0\\.1\\.0\\.zip; Copy-Item \\.\\\\ai-skill-library-0\\.1\\.0\\.vsix \\.\\\\ai-skill-library-0\\.1\\.0\\.zip -Force; Expand-Archive -LiteralPath \\.\\\\ai-skill-library-0\\.1\\.0\\.zip -DestinationPath \\.\\\\tmp-vsix -Force; Remove-Item -Recurse -Force -ErrorAction SilentlyContinue 'C:\\\\Users\\\\wico\\\\\\.vscode\\\\extensions\\\\ai-skill-library-0\\.1\\.0'; Copy-Item -Path \\.\\\\tmp-vsix\\\\extension -Destination 'C:\\\\Users\\\\wico\\\\\\.vscode\\\\extensions\\\\ai-skill-library-0\\.1\\.0' -Recurse -Force;\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
