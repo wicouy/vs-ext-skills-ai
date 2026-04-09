@@ -39,7 +39,7 @@ async function main() {
 		platform: 'node',
 		outfile: 'dist/extension.js',
 		external: ['vscode'],
-		logLevel: 'silent',
+		logLevel: 'warning',
 		alias: {
 			'@': path.resolve(__dirname, 'src'),
 		},
